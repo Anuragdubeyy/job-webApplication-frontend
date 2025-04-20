@@ -15,6 +15,7 @@ const store = configureStore({
       apiMessage: reducers.apiMessage,
       authState: reducers.authState,
       loader: reducers.loader,
+      job: reducers.job,
       
   }
 })
