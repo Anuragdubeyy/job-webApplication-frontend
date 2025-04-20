@@ -1,7 +1,6 @@
-import React from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { useStore } from '../store';
-import { dummyApplications, dummyJobs } from '../data';
+import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import { dummyApplications, dummyJobs } from '../../data';
+import { useStore } from '../../store';
 
 const applicationData = [
   { week: 'Week 1', applications: 3 },

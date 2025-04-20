@@ -15,6 +15,7 @@ import {
 import { Input } from "../ui/input";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { USER_TYPE } from "../../constant";
 
 export default function LoginForm() {
   const dispatch = useAppDispatch();
@@ -30,16 +31,34 @@ export default function LoginForm() {
   });
 
   const onSubmit = async (data: LoginInput) => {
-      try {
-          const resultAction = await dispatch(Login(data));
-          if (Login.fulfilled.match(resultAction)) {
-              navigate("/dashboard");
-          } else {
-              console.error("Login failed:", resultAction.error);
-          }
-      } catch (error) {
-          console.error("Login failed:", error);
+    try {
+      const resultAction = await dispatch(Login(data));
+      if (Login.fulfilled.match(resultAction)) {
+        // Fix: Access the role correctly from the payload
+        const role = resultAction.payload.user.role; // Remove the destructuring
+        
+        // Store user role in localStorage
+        localStorage.setItem('userRole', role);
+        // Store auth token if available
+        if (resultAction.payload.token) {
+          localStorage.setItem('jobToken', resultAction.payload.token);
+        }
+  
+        if (role === USER_TYPE.JOBSEEKER) {
+          navigate('/jobseeker/dashboard');
+        } else if (role === USER_TYPE.EMPLOYER) {
+          navigate('/employer/dashboard');
+        } else {
+          console.error("Unknown role:", role);
+          // Handle unknown role (maybe redirect to home or show error)
+          navigate('/');
+        }
+      } else {
+        console.error("Login failed:", resultAction.error);
       }
+    } catch (error) {
+      console.error("Login failed:", error);
+    }
   };
 
 

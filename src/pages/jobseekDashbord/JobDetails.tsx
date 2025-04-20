@@ -1,8 +1,7 @@
-import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { MapPin, Building2, Clock, BriefcaseIcon, Send } from 'lucide-react';
-import { useStore } from '../store';
-import { dummyJobs } from '../data';
+import { useStore } from '../../store';
+import { dummyJobs } from '../../data';
 
 function JobDetails() {
   const { id } = useParams();

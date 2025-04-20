@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, MapPin, Building2, Clock } from 'lucide-react';
-import { useStore } from '../store';
-import { dummyJobs } from '../data';
+import { useStore } from '../../store';
+import { dummyJobs } from '../../data';
 
 function Jobs() {
   const isDarkMode = useStore((state) => state.isDarkMode);

@@ -1,7 +1,6 @@
-import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
-import { useStore } from '../store';
-import { dummyJobs, dummyApplications } from '../data';
+import { dummyJobs, dummyApplications } from '../../data';
+import { useStore } from '../../store';
 
 const monthlyData = [
   { month: 'Jan', jobs: 4 },

@@ -1,3 +1,5 @@
+import { Building2Icon, Contact, LayoutDashboard } from "lucide-react";
+
 export const DOMAIN = import.meta.env.VITE_SERVER_DOMAIN + "/api";
 
 export const API_URL = {
@@ -19,6 +21,27 @@ export type RowType = {
   }
 
   export const USER_TYPE = {
-    JOBSEEKER: "Jobseeker",
-    EMPLOYER: "Employer",
+    JOBSEEKER: "jobseeker",
+    EMPLOYER: "employer",
   };
+
+  export const leftSideBarLinks = [
+    {
+      label: "Dashboard",
+      to: "/dashboard",
+      icon: <LayoutDashboard />,
+    },
+    {
+      label: "Contact",
+      to: "/contact",
+      icon: <Contact />,
+    },
+    {
+      label: "Company",
+      to: "/company",
+      icon: <Building2Icon />,
+    },
+    
+
+    
+  ];
