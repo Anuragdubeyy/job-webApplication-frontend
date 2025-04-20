@@ -16,6 +16,7 @@ const store = configureStore({
       authState: reducers.authState,
       loader: reducers.loader,
       job: reducers.job,
+      EmployerJob: reducers.EmployerJob,
       
   }
 })

@@ -28,12 +28,13 @@ function EmployerDashboard() {
   const applications = dummyApplications.filter(app => 
     employerJobs.some(job => job.id === app.jobId)
   );
+  const UserName = localStorage.getItem('userName');
 
   return (
     <div className={`${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-4">Employer Dashboard</h1>
-        <p className="text-gray-500">Welcome back, {currentUser?.name}</p>
+        <p className="text-gray-500">Welcome back , <strong className='text-black'>{UserName}</strong></p>
       </div>
 
       <div className="grid md:grid-cols-4 gap-6 mb-8">

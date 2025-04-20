@@ -37,13 +37,16 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem("jobToken");
     localStorage.removeItem("userData");
+    localStorage.removeItem("role");
+    localStorage.clear();
     setCurrentUser(null);
     navigate("/login");
   };
-
+  
+  const UserName = localStorage.getItem('userName');
   const getUserInitials = () => {
-    if (currentUser?.name) {
-      const names = currentUser.name.split(" ");
+    if (UserName) {
+      const names = UserName.split(" ");
       return names
         .map((n) => n[0])
         .join("")
@@ -53,8 +56,7 @@ const Navbar = () => {
   };
 
   const userInitials = getUserInitials();
-  const isLoggedIn = isClientSide && !!currentUser;
-
+  const isLoggedIn = localStorage.getItem("role") !== null;
   return (
     <nav
       className={`${
@@ -102,8 +104,8 @@ const Navbar = () => {
                   >
                     <Avatar className="h-8 w-8">
                       <AvatarImage
-                        src={currentUser?.avatar || undefined}
-                        alt={currentUser?.name || "User"}
+                        src={UserName || undefined}
+                        alt={UserName || "User"}
                       />
                       <AvatarFallback className="bg-primary text-primary-foreground">
                         {userInitials}

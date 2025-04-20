@@ -14,6 +14,7 @@ const applicationData = [
 function JobSeekerDashboard() {
   const isDarkMode = useStore((state) => state.isDarkMode);
   const currentUser = useStore((state) => state.currentUser);
+  const UserName = localStorage.getItem('userName');
 
   const userApplications = dummyApplications.filter(app => app.userId === currentUser?.id);
   const appliedJobs = userApplications.map(app => 
@@ -23,8 +24,8 @@ function JobSeekerDashboard() {
   return (
     <div className={`${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-4">Job Seeker Dashboard</h1>
-        <p className="text-gray-500">Welcome back, {currentUser?.name}</p>
+        <h1 className="text-3xl font-bold mb-4"> {UserName} Dashboard</h1>
+        <p className="text-gray-500">Welcome back, <strong className='text-black'>{UserName}</strong></p>
       </div>
 
       <div className="grid md:grid-cols-4 gap-6 mb-8">

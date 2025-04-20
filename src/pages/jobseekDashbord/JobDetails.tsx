@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { MapPin, Building2, Clock, Send } from "lucide-react";
 import { useStore } from "../../store";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
@@ -12,7 +12,11 @@ function JobDetails() {
   const currentUser = localStorage.getItem("role");
   const job = useAppSelector(selectSingleJob);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
+  const handleApplyNow = () => {
+    navigate(`/application/${id}`);
+  };
   useEffect(() => {
     if (id) {
       dispatch(getSingleJobAsync(id));
@@ -72,7 +76,8 @@ function JobDetails() {
               </span>
             </div>
             {currentUser === "jobseeker" && (
-              <Button className="w-full mt-6  bg-blue-600 text-white  rounded-lg hover:bg-blue-700 transition flex items-center justify-center">
+
+              <Button onClick={handleApplyNow} className="w-full mt-6  bg-blue-600 text-white  rounded-lg hover:bg-blue-700 transition flex items-center justify-center">
                 <Send className="w-4 h-4" />
                 Apply Now
               </Button>

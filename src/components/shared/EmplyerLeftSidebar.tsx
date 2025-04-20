@@ -2,7 +2,7 @@ import { LogOut, Text } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "../ui/button";
 import AlertConfirmation from "../common/AlertConfirmation";
-import { leftSideBarLinks } from "../../constant";
+import { EmployerLeftSideBarLinks } from "../../constant";
 import {
   Tooltip,
   TooltipContent,
@@ -17,7 +17,7 @@ import { Popover, PopoverTrigger } from "../ui/popover";
 //   toggleSideBar: () => void;
 // }
 
-export default function LeftSideBar() {
+export default function EmployerLeftSideBar() {
   const location = useLocation();
   const [isDialogOpen, setDialogOpen] = useState(false);
 
@@ -40,7 +40,7 @@ export default function LeftSideBar() {
       </div> */}
       <TooltipProvider>
         <div className="flex flex-1 flex-col gap-4">
-          {leftSideBarLinks.map((link) => (
+          {EmployerLeftSideBarLinks.map((link) => (
             <Tooltip key={link.label}>
               <TooltipTrigger asChild>
                 {link.type === "dialog" ? (

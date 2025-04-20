@@ -6,8 +6,9 @@ export const API_URL = {
     GET_ADMING_LOGIN: DOMAIN + "/auth/login",
     GET_ALL_JOB: DOMAIN + "/users/jobs",
     GET_SINGLE_JOB_DETAILS: (id: string) => DOMAIN + `/users/jobs/${id}`,
+    GET_EMPLOYER_JOB_POST: DOMAIN + "/employers/jobs",
 }
-export const ITEM_PER_PAGE = 50;
+export const ITEM_PER_PAGE = 20;
 
 export type RowType = {
     getIsSelected: () => boolean;
@@ -36,6 +37,26 @@ export type RowType = {
     {
       label: "Contact",
       to: "/contact",
+      icon: <Contact />,
+    },
+    {
+      label: "Company",
+      to: "/company",
+      icon: <Building2Icon />,
+    },
+    
+
+    
+  ];
+  export const EmployerLeftSideBarLinks = [
+    {
+      label: "Dashboard",
+      to: "/employer/dashboard",
+      icon: <LayoutDashboard />,
+    },
+    {
+      label: "Contact",
+      to: "/employer/jobPost",
       icon: <Contact />,
     },
     {
