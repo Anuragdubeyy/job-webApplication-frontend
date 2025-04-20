@@ -4,12 +4,17 @@ import { Search } from 'lucide-react';
 import { EmployerJobPostColumn } from './column';
 import { getAllEmployerJobListAsync, selectAllEmployerJobList } from '../../../store/slices/employer';
 import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import { Button } from '../../../components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 export default function EmployerJobPost() {
   const tableRef = useRef<null>(null);
 const dispatch = useAppDispatch();
 const EmployerPost = useAppSelector(selectAllEmployerJobList || []);
-
+  const navigate = useNavigate();
+const handelonClick = () => {
+  navigate("/create-job-post");
+}
 useEffect(() => {
   dispatch(getAllEmployerJobListAsync());
 },[dispatch])
@@ -26,7 +31,7 @@ useEffect(() => {
                 className="ring-ring max-w-sm h-10 w-80 font-bold px-3 py-2 text-sm file:bottom-0 placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
             />
         </div>
-
+            <Button onClick={handelonClick}>Add New Job</Button>
     </div>
 
     <div className="bg-white p-2 mt-2 rounded-lg shadow-md h-[90vh]">
