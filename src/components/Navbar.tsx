@@ -42,8 +42,8 @@ const Navbar = () => {
     setCurrentUser(null);
     navigate("/login");
   };
-  
-  const UserName = localStorage.getItem('userName');
+
+  const UserName = localStorage.getItem("userName");
   const getUserInitials = () => {
     if (UserName) {
       const names = UserName.split(" ");
@@ -85,16 +85,29 @@ const Navbar = () => {
           )}
 
           <div className="flex items-center gap-4">
-            <Link
-              to="/jobs"
-              className={`text-sm font-medium ${
-                isDarkMode
-                  ? "text-gray-300 hover:text-white"
-                  : "text-gray-700 hover:text-gray-900"
-              }`}
-            >
-              Jobs
-            </Link>
+            {isLoggedIn ? (
+              <Link
+                to="/jobseeker/jobs"
+                className={`text-sm font-medium ${
+                  isDarkMode
+                    ? "text-gray-300 hover:text-white"
+                    : "text-gray-700 hover:text-gray-900"
+                }`}
+              >
+                Jobs
+              </Link>
+            ) : (
+              <Link
+                to="/jobs"
+                className={`text-sm font-medium ${
+                  isDarkMode
+                    ? "text-gray-300 hover:text-white"
+                    : "text-gray-700 hover:text-gray-900"
+                }`}
+              >
+                Jobs
+              </Link>
+            )}
             {isLoggedIn ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>

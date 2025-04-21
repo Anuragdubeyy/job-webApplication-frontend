@@ -31,7 +31,6 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { Checkbox } from "../ui/checkbox";
 import { Textarea } from "../ui/textarea";
-import { Tooltip } from "../ui/tooltip";
 import { API_URL } from "../../constant";
 
 export default function JobApplyPage() {
@@ -150,7 +149,7 @@ export default function JobApplyPage() {
   return (
     <div className="p-6 space-y-8">
       <div className="mb-4">
-        <Link to="/jobs">
+        <Link to="/jobseeker/jobs">
           <Button>ALL JOB</Button>
         </Link>
       </div>
