@@ -97,16 +97,8 @@ const Navbar = () => {
                 Jobs
               </Link>
             ) : (
-              <Link
-                to="/jobs"
-                className={`text-sm font-medium ${
-                  isDarkMode
-                    ? "text-gray-300 hover:text-white"
-                    : "text-gray-700 hover:text-gray-900"
-                }`}
-              >
-                Jobs
-              </Link>
+              <>
+              </>
             )}
             {isLoggedIn ? (
               <DropdownMenu>
