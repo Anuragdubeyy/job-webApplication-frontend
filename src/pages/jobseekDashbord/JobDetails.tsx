@@ -30,7 +30,7 @@ function JobDetails() {
   return (
     <div className={`${isDarkMode ? "text-white" : "text-gray-900"}`}>
       <div className="mb-4">
-        <Link to="/jobs">
+        <Link to="/jobseeker/jobs">
           <Button>ALL JOB</Button>
         </Link>
       </div>
