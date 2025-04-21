@@ -1,48 +1,88 @@
-# 🚀 Job Portal - MERN Stack Assessment
+# Job Portal Frontend - MERN Stack
 
-## 📌 Overview
+This frontend project is a comprehensive implementation of a Job Portal using **React.js** and **Tailwind CSS**. It provides a seamless user interface for Job Seekers and Employers to access and manage the job portal efficiently.
 
-This project serves as a **starter template** for building a **fully functional Job Portal** using the **MERN (MongoDB, Express.js, React, Node.js) stack**.
+## Features Implemented
 
-Candidates are expected to implement **both frontend and backend features** to deliver a **complete** job portal web application.
-
----
-
-## 🎯 Assessment Tasks
-
-### 1️⃣ User Authentication System
-
-- Implement user authentication using **JWT** or **session-based authentication**.
-- Support **Role-Based Access Control (RBAC)** for **Employers** and **Job Seekers**.
-
-### 2️⃣ Job Listings & Search
-
-- Develop **API endpoints** to **Create, Read, Update, and Delete (CRUD)** job listings.
-- Implement a **search and filtering system** for job listings.
-
-### 3️⃣ Job Application System
-
-- Allow **Job Seekers** to apply for jobs.
-- Enable **Employers** to **view applicants** for their job listings.
-
-### 4️⃣ Employer & Job Seeker Dashboards
-
-- **Employers Dashboard**: Manage **job postings** and **view applicants**.
-- **Job Seekers Dashboard**: Track **applied jobs** and manage applications.
-
-### 5️⃣ Extend Functionality & Design
-
-- Feel free to add **new features**, **improvements**, or **design enhancements** to showcase your skills.
+### **1. User Authentication System**
+- **Role-Based Access Control (RBAC):** Provides login and registration functionality for two roles:
+  - **Employer**
+  - **Job Seeker**
+- **Authentication Flow:**
+  - Login and registration are integrated with the backend using JWT for session management.
+- **Protected Routes:** Ensure that users can access specific features only when authenticated.
 
 ---
 
-## 📌 Submission Guidelines
+### **2. Employer Features**
+Employers can manage job postings and track applicants. Features include:
 
-1. **Push your code** to a **GitHub repository**.
-2. Provide a **README.md** with:
-   - **Setup Instructions**
-   - **Features & Implementation Details**
-3. **Deploy the application** on any hosting platform (**Vercel, Render, etc.**).
-4. **Submit the live link** along with the **repository link**.
+#### Create Job Post
+Employers can fill out a form to post new job openings.
+
+#### View All Job Posts
+Employers can see a list of all their job postings in a dashboard view.
+
+#### View Applicants
+Employers can access a list of applicants for a specific job post, complete with resume links or other relevant details.
+
+#### Update Job Post
+Employers can update job details directly from the dashboard.
+
+#### Delete Job Post
+Employers can remove job postings from the system.
+
+#### Profile Management
+Employers can view and edit their profile details, including contact information and company details.
 
 ---
+
+### **3. Job Seeker Features**
+Job Seekers can browse and apply for jobs with ease. Features include:
+
+#### Browse Jobs with Categories and Pagination
+Job Seekers can search for jobs by category or keyword and view paginated results.
+
+#### View Single Job Details
+Job Seekers can view detailed job descriptions, requirements, and employer information.
+
+#### Apply for Job Posts
+Job Seekers can submit applications for job posts by uploading their resumes and providing relevant details.
+
+#### View Applied Jobs
+Job Seekers can track their application status and view the jobs they have applied for.
+
+#### Profile Management
+Job Seekers can update their profiles, including skills, education, and experience.
+
+---
+
+### **4. Additional Functionalities**
+#### Responsive Design
+The application is fully responsive and works seamlessly across desktops, tablets, and mobile devices.
+
+#### Search and Filtering System
+A robust search and filter system allows users to find jobs or applications quickly.
+
+#### Real-Time Notifications
+Job Seekers and Employers receive real-time feedback on actions such as successful job applications or updates to job posts.
+
+#### Pagination
+All job listing pages support pagination for improved usability and performance.
+
+---
+
+## **Technologies Used**
+- **React.js:** JavaScript library for building the user interface.
+- **Tailwind CSS:** Utility-first CSS framework for responsive design.
+- **Axios:** For making HTTP requests to the backend API.
+- **React Router DOM:** For routing and navigation between pages.
+- **React Context API:** For managing authentication state across the app.
+
+---
+
+## **Setup Instructions**
+
+### Clone the repository:
+```bash
+git clone https://github.com/your-username/job-portal-frontend.git
