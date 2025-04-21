@@ -4,11 +4,11 @@ import { Outlet } from "react-router-dom";
 export default function JobseekDashbord() {
   return (
     <div className="flex w-full min-h-screen m-0 p-0">
-      <LeftSideBar />
-      <main
-        className={`w-full  m-0 p-3  transition-all
-                  `}
-      >
+      <div className="fixed left-0  w-64 h-full ">
+        <LeftSideBar />
+      </div>
+
+      <main className="ml-16 w-full overflow-auto p-3 h-full">
         <Outlet />
       </main>
     </div>

@@ -6,8 +6,11 @@ import { getAllEmployerJobListAsync, selectAllEmployerJobList } from '../../../s
 import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 import { Button } from '../../../components/ui/button';
 import { useNavigate } from 'react-router-dom';
+import { useStore } from '../../../store';
 
 export default function EmployerJobPost() {
+    const isDarkMode = useStore((state) => state.isDarkMode);
+  
   const tableRef = useRef<null>(null);
 const dispatch = useAppDispatch();
 const EmployerPost = useAppSelector(selectAllEmployerJobList || []);
@@ -19,7 +22,7 @@ useEffect(() => {
   dispatch(getAllEmployerJobListAsync());
 },[dispatch])
   return (
-    <div className="p-2 bg-gray-100 min-h-screen">
+    <div className={`p-2 bg-gray-100 min-h-screen ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
     <div className="flex justify-between gap-4">
         <h1 className="text-xl font-bold text-indigo-950 mb-4">job Posted({EmployerPost.length})</h1>
         <div className="flex items-center border border-input bg-background rounded ring-offset-background">

@@ -615,6 +615,20 @@ export default function JobApplyPage() {
                 >
                   Clear
                 </Button>
+                {Object.keys(form.formState.errors).length > 0 && (
+                  <div className="text-red-500 mt-2">
+                    <h3>Invalid Fields:</h3>
+                    <ul>
+                      {Object.entries(form.formState.errors).map(
+                        ([field, error]) => (
+                          <li key={field}>
+                            <strong>{field}:</strong> {error.message}
+                          </li>
+                        )
+                      )}
+                    </ul>
+                  </div>
+                )}
               </div>
             </form>
           </Form>
