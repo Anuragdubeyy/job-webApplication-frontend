@@ -15,7 +15,7 @@ function JobDetails() {
   const navigate = useNavigate();
 
   const handleApplyNow = () => {
-    navigate(`/application/${id}`);
+    navigate(`/jobseeker/application/${id}`);
   };
   useEffect(() => {
     if (id) {

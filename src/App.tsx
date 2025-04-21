@@ -15,6 +15,7 @@ import LoginPage from "./pages/LoginPage";
 import Register from "./pages/Register";
 import { useStore } from "./store";
 import JobPostForm from "./components/form/postNewJob";
+import JobseekerAppliedJob from "./pages/jobseekDashbord/job/jobseekerAppliedJob";
 
 // Protected Route component
 const ProtectedRoute = ({
@@ -114,19 +115,52 @@ function App() {
           </Route>
           <Route
             element={
-              <ProtectedRoute requiredRole={USER_TYPE.EMPLOYER}>
+              <ProtectedRoute requiredRole={USER_TYPE.JOBSEEKER}>
                 <JobseekDashbord />
               </ProtectedRoute>
             }
-          ></Route>
-          <Route
-            path="/jobseeker/dashboard"
+          >
+            <Route
+              path="/jobseeker/dashboard"
+              element={
+                <ProtectedRoute requiredRole={USER_TYPE.JOBSEEKER}>
+                  <JobSeekerDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/jobseeker/jobs"
+              element={
+                <ProtectedRoute requiredRole={USER_TYPE.JOBSEEKER}>
+                  <Jobs />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/jobseeker/jobs/:id"
+              element={
+                <ProtectedRoute requiredRole={USER_TYPE.JOBSEEKER}>
+                  <JobDetails />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+            path="/jobseeker/application/:id"
             element={
               <ProtectedRoute requiredRole={USER_TYPE.JOBSEEKER}>
-                <JobSeekerDashboard />
+                <JobApplyPage />
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/jobseeker/applied-jobs"
+            element={
+              <ProtectedRoute requiredRole={USER_TYPE.JOBSEEKER}>
+                <JobseekerAppliedJob />
+              </ProtectedRoute>
+            }
+          />
+          </Route>
 
           {/* Redirect to login for any other route */}
           <Route path="*" element={<Navigate to="/login" replace />} />

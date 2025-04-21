@@ -82,7 +82,7 @@ function Jobs() {
           return (
             <Link
               key={job._id}
-              to={`/jobs/${job._id}`}
+              to={`/jobseeker/jobs/${job._id}`}
               className={`${
                 isDarkMode
                   ? "bg-gray-800 hover:bg-gray-700"

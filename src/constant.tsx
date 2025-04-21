@@ -31,17 +31,17 @@ export type RowType = {
   export const leftSideBarLinks = [
     {
       label: "Dashboard",
-      to: "/dashboard",
+      to: "/jobseeker/dashboard",
       icon: <LayoutDashboard />,
     },
     {
-      label: "Contact",
-      to: "/contact",
+      label: "Job",
+      to: "/jobseeker/jobs",
       icon: <Contact />,
     },
     {
-      label: "Company",
-      to: "/company",
+      label: "Job Applied",
+      to: "/jobseeker/applied-jobs",
       icon: <Building2Icon />,
     },
     
