@@ -11,6 +11,7 @@ import {
 } from "../ui/tooltip";
 import { useState } from "react";
 import { Popover, PopoverTrigger } from "../ui/popover";
+import { useStore } from "../../store";
 
 // interface Props {
 //   isSideBarOpen: boolean;
@@ -20,6 +21,7 @@ import { Popover, PopoverTrigger } from "../ui/popover";
 export default function EmployerLeftSideBar() {
   const location = useLocation();
   const [isDialogOpen, setDialogOpen] = useState(false);
+  const { isDarkMode} = useStore()
 
   const handleLogout = () => {
     localStorage.clear();
@@ -30,8 +32,7 @@ export default function EmployerLeftSideBar() {
 
   return (
     <aside
-      className={`sticky left-0 top-0  flex h-screen min-w-fit bg-teal-800 w-10 flex-col justify-between  border-r pt-3 pb-5 pr-1 
-        `}
+    className={`sticky left-0 top-0  flex h-screen min-w-fit ${ isDarkMode ? "dark bg-gray-800" : "bg-teal-800 "} w-10 flex-col justify-between  border-r pt-3 pb-5 pr-1`}
     >
       {/* <div className="relative flex items-center justify-start p-2 ml-2 w-11 gap-4 rounded-lg bg-gray-100 mb-6 text-teal-700 font-bold transition-all ">
         <button onClick={toggleSideBar}>

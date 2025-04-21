@@ -12,7 +12,7 @@ import { useAppDispatch } from "../../../store/hooks";
 import AlertConfirmation from "../../../components/common/AlertConfirmation";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { Edit2 } from "lucide-react";
-export const EmployerJobPostColumn = [
+export const AppliedApplicantColumn = [
   {
     accessorKey: "idx",
     header: "Sr No.",

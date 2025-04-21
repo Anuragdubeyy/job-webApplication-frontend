@@ -39,7 +39,7 @@ export type RowType = {
       icon: <LayoutDashboard />,
     },
     {
-      label: "Job",
+      label: "Jobs",
       to: "/jobseeker/jobs",
       icon: <Contact />,
     },
@@ -59,13 +59,13 @@ export type RowType = {
       icon: <LayoutDashboard />,
     },
     {
-      label: "Contact",
+      label: "Job Posted",
       to: "/employer/jobPost",
       icon: <Contact />,
     },
     {
-      label: "Company",
-      to: "/company",
+      label: "JOb Applicants",
+      to: "/employer/jobApplicant",
       icon: <Building2Icon />,
     },
     

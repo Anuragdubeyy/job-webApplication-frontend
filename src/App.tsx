@@ -16,6 +16,7 @@ import Register from "./pages/Register";
 import { useStore } from "./store";
 import JobPostForm from "./components/form/postNewJob";
 import JobseekerAppliedJob from "./pages/jobseekDashbord/job/jobseekerAppliedJob";
+import AppliedApplicants from "./pages/employDashbord/appliedJobseeker/AppliedApplicants";
 
 // Protected Route component
 const ProtectedRoute = ({
@@ -109,6 +110,14 @@ function App() {
               element={
                 <ProtectedRoute requiredRole={USER_TYPE.EMPLOYER}>
                   <JobPostForm />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/employer/jobApplicant"
+              element={
+                <ProtectedRoute requiredRole={USER_TYPE.EMPLOYER}>
+                  <AppliedApplicants />
                 </ProtectedRoute>
               }
             />

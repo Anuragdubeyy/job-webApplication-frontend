@@ -1,29 +1,25 @@
-import { useEffect, useRef } from "react";
+import {  useRef } from "react";
 import DataTable from "../../../components/common/DataTable";
 import { Search } from "lucide-react";
-import { EmployerJobPostColumn } from "./column";
-import {
-  getAllEmployerJobListAsync,
-  selectAllEmployerJobList,
-} from "../../../store/slices/employer";
-import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+import { AppliedApplicantColumn } from "./column";
+
 import { Button } from "../../../components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../../../store";
 
-export default function EmployerJobPost() {
+export default function AppliedApplicants() {
   const isDarkMode = useStore((state) => state.isDarkMode);
 
   const tableRef = useRef<null>(null);
-  const dispatch = useAppDispatch();
-  const EmployerPost = useAppSelector(selectAllEmployerJobList || []);
+  // const dispatch = useAppDispatch();
+  // const EmployerPost = useAppSelector(selectAllEmployerJobList || []);
   const navigate = useNavigate();
   const handelonClick = () => {
     navigate("/create-job-post");
   };
-  useEffect(() => {
-    dispatch(getAllEmployerJobListAsync());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getAllEmployerJobListAsync());
+  // }, [dispatch]);
   return (
     <div
       className={`p-2 bg-gray-100 min-h-screen ${
@@ -32,7 +28,7 @@ export default function EmployerJobPost() {
     >
       <div className="flex justify-between gap-4">
         <h1 className="text-xl font-bold text-indigo-950 mb-4">
-          job Posted({EmployerPost.length})
+          job Applicants
         </h1>
         <div className="flex items-center border border-input bg-background rounded ring-offset-background">
           <Search className="ml-5 text-gray-500" />
@@ -52,8 +48,8 @@ export default function EmployerJobPost() {
             <div className="min-w-max">
               <DataTable
                 tableRef={tableRef}
-                columns={EmployerJobPostColumn}
-                data={EmployerPost}
+                columns={AppliedApplicantColumn}
+                data={[]}
               />
             </div>
           </div>
