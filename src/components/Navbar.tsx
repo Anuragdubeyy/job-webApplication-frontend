@@ -12,8 +12,7 @@ import { Button } from "./ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const Navbar = () => {
-  const { isDarkMode, toggleDarkMode, currentUser, setCurrentUser } =
-    useStore();
+  const { isDarkMode, toggleDarkMode, currentUser, setCurrentUser } = useStore();
   const navigate = useNavigate();
   const [isClientSide, setIsClientSide] = useState(false);
 
@@ -60,7 +59,7 @@ const Navbar = () => {
   return (
     <nav
       className={`${
-        isDarkMode ? "dark bg-gray-800" : "bg-white"
+        isDarkMode ? "dark bg-gray-800" : "bg-teal-800 "
       } shadow-md fixed w-full z-20`}
     >
       <div className="container mx-auto px-4">
@@ -68,7 +67,7 @@ const Navbar = () => {
           {isLoggedIn ? (
             <div
               className={`text-xl font-bold cursor-default ${
-                isDarkMode ? "text-white" : "text-gray-900"
+                isDarkMode ? "text-white" : "text-neutral-50"
               }`}
             >
               JobPortal
@@ -91,14 +90,13 @@ const Navbar = () => {
                 className={`text-sm font-medium ${
                   isDarkMode
                     ? "text-gray-300 hover:text-white"
-                    : "text-gray-700 hover:text-gray-900"
+                    : "text-neutral-50 hover:text-text-neutral-100"
                 }`}
               >
                 Jobs
               </Link>
             ) : (
-              <>
-              </>
+              <></>
             )}
             {isLoggedIn ? (
               <DropdownMenu>
@@ -136,7 +134,8 @@ const Navbar = () => {
                 variant="outline"
                 size="sm"
                 onClick={() => navigate("/login")}
-                className="h-8"
+                className={`h-8 ${
+                  isDarkMode ? "text-white" : "text-gray-900"}`}
               >
                 Login
               </Button>
@@ -149,9 +148,9 @@ const Navbar = () => {
               className="rounded-full h-8 w-8"
             >
               {isDarkMode ? (
-                <Sun className="h-4 w-4" />
+                <Sun className="h-4 w-4 text-slate-50" />
               ) : (
-                <Moon className="h-4 w-4" />
+                <Moon className="h-4 w-4 text-gray-50" />
               )}
             </Button>
           </div>

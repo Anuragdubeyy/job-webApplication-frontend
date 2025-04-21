@@ -16,12 +16,13 @@ import { Input } from "../ui/input";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { USER_TYPE } from "../../constant";
+import { useStore } from "../../store";
 
 export default function LoginForm() {
   const dispatch = useAppDispatch();
   const isLoading = useAppSelector((state) => state.loader.isActive);
   const navigate = useNavigate();
-
+  const { isDarkMode} = useStore();
   const form = useForm<LoginInput>({
       resolver: zodResolver(loginSchema),
       defaultValues: {
@@ -70,8 +71,8 @@ export default function LoginForm() {
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email ID</FormLabel>
+              <FormItem className={`${isDarkMode ? "text-white" : "text-gray-900"}`}>
+                <FormLabel className={`${isDarkMode ? "text-white" : "text-gray-900"}`}>Email ID</FormLabel>
                 <FormControl>
                   <Input
                     className="ring-ring h-10 border border-input bg-background px-3 py-2 text-sm ring-offset-background file:bottom-0 placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
@@ -91,8 +92,8 @@ export default function LoginForm() {
               control={form.control}
               name="password"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Password</FormLabel>
+                <FormItem className={`${isDarkMode ? "text-white" : "text-gray-900"}`}>
+                  <FormLabel className={`${isDarkMode ? "text-white" : "text-gray-900"}`}>Password</FormLabel>
                   <FormControl>
                     <Input
                       className="ring-ring h-10 border border-input bg-background px-3 py-2 text-sm ring-offset-background file:bottom-0 placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"

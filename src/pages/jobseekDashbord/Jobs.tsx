@@ -55,8 +55,11 @@ function Jobs() {
   return (
     <div className={`${isDarkMode ? "text-white" : "text-gray-900"}`}>
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-4">Find Your Next Opportunity</h1>
+        <div className="flex justify-between items-center mb-4">
 
+        <h1 className="text-2xl font-bold mb-4">Find Your Next Opportunity</h1>
+        <h2 className="text-xl font-bold mb-4">jobs({jobs.length})</h2>
+        </div>
         <div className="flex flex-col md:flex-row gap-4 mb-6">
           <div className="flex-1">
             <div
