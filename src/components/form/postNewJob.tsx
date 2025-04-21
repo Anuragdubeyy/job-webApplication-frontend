@@ -17,6 +17,7 @@ import { Button } from "../ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../../constant";
 
 const JobPostForm = () => {
   const [requirementInput, setRequirementInput] = useState("");
@@ -65,7 +66,7 @@ const navigate = useNavigate();
     try {
       const token = localStorage.getItem("jobToken");
       const response = await axios.post(
-        `http://localhost:5000/api/employers/jobs/create`,
+        API_URL.POST_NEW_JOB,
         formData,
         { headers: {"Authorization": `Bearer ${token}`,"Content-Type": "application/json" } }
       );

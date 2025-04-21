@@ -32,6 +32,7 @@ import { toast } from "react-toastify";
 import { Checkbox } from "../ui/checkbox";
 import { Textarea } from "../ui/textarea";
 import { Tooltip } from "../ui/tooltip";
+import { API_URL } from "../../constant";
 
 export default function JobApplyPage() {
   // Mock applicant data
@@ -127,7 +128,7 @@ export default function JobApplyPage() {
       console.log("FormData before submission:", [...formData]);
   
       const response = await axios.post(
-        `http://localhost:5000/api/users/jobs/apply/${id}`,
+        API_URL.POST_APPLY_FOR_JOB(id?.toString() || ""),
         formData,
         {
           headers: {

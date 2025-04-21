@@ -4,9 +4,13 @@ export const DOMAIN = import.meta.env.VITE_SERVER_DOMAIN + "/api";
 
 export const API_URL = {
     GET_ADMING_LOGIN: DOMAIN + "/auth/login",
+    GET_USER_REGISTER: DOMAIN + "/auth/register",
     GET_ALL_JOB: DOMAIN + "/users/jobs",
     GET_SINGLE_JOB_DETAILS: (id: string) => DOMAIN + `/users/jobs/${id}`,
     GET_EMPLOYER_JOB_POST: DOMAIN + "/employers/jobs",
+    POST_APPLY_FOR_JOB:(id: string) => DOMAIN + `/users/jobs/apply/${id}`,
+    POST_NEW_JOB: DOMAIN + "/employers/jobs/create",
+
 }
 export const ITEM_PER_PAGE = 20;
 
