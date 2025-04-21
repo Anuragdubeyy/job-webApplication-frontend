@@ -1,6 +1,6 @@
 # Job Portal Frontend - MERN Stack
 
-This frontend project is a comprehensive implementation of a Job Portal using **React.js** and **Tailwind CSS**. It provides a seamless user interface for Job Seekers and Employers to access and manage the job portal efficiently.
+This frontend project is a comprehensive implementation of a Job Portal using **React.js**, **Tailwind CSS**, **ShadCN UI**, and **Redux**. It provides a seamless user interface for Job Seekers and Employers to access and manage the job portal efficiently.
 
 ## Features Implemented
 
@@ -21,7 +21,7 @@ Employers can manage job postings and track applicants. Features include:
 Employers can fill out a form to post new job openings.
 
 #### View All Job Posts
-Employers can see a list of all their job postings in a dashboard view.
+Employers can see a list of all their job postings in a dedicated dashboard.
 
 #### View Applicants
 Employers can access a list of applicants for a specific job post, complete with resume links or other relevant details.
@@ -34,6 +34,12 @@ Employers can remove job postings from the system.
 
 #### Profile Management
 Employers can view and edit their profile details, including contact information and company details.
+
+#### Employer Dashboard
+Employers have access to a custom dashboard where they can:
+- Manage their job postings.
+- Track the number of applicants for each job post.
+- Perform actions such as adding, updating, or deleting job posts.
 
 ---
 
@@ -55,6 +61,12 @@ Job Seekers can track their application status and view the jobs they have appli
 #### Profile Management
 Job Seekers can update their profiles, including skills, education, and experience.
 
+#### Job Seeker Dashboard
+Job Seekers have access to a personalized dashboard where they can:
+- Track their applied jobs.
+- Update their profile for better job matches.
+- Access detailed job recommendations.
+
 ---
 
 ### **4. Additional Functionalities**
@@ -64,8 +76,11 @@ The application is fully responsive and works seamlessly across desktops, tablet
 #### Search and Filtering System
 A robust search and filter system allows users to find jobs or applications quickly.
 
-#### Real-Time Notifications
-Job Seekers and Employers receive real-time feedback on actions such as successful job applications or updates to job posts.
+#### Toast Notifications
+- Integrated with **Toastify** for displaying real-time feedback messages for actions like job applications, profile updates, or error handling.
+
+#### State Management
+- Implemented **Redux** for efficient state management across components, ensuring smooth data handling for both Employer and Job Seeker dashboards.
 
 #### Pagination
 All job listing pages support pagination for improved usability and performance.
@@ -75,6 +90,9 @@ All job listing pages support pagination for improved usability and performance.
 ## **Technologies Used**
 - **React.js:** JavaScript library for building the user interface.
 - **Tailwind CSS:** Utility-first CSS framework for responsive design.
+- **ShadCN UI:** For building accessible and customizable UI components.
+- **Redux:** For managing global state across the application.
+- **Toastify:** For real-time toast notifications.
 - **Axios:** For making HTTP requests to the backend API.
 - **React Router DOM:** For routing and navigation between pages.
 - **React Context API:** For managing authentication state across the app.
