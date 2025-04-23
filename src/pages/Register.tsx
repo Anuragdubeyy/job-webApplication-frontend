@@ -43,7 +43,7 @@ function Register() {
 
       const response = await axios.post(API_URL.GET_USER_REGISTER, payload);
 
-      if (response.data.success) {
+      if (response.status === 201) {
         toast.success('Registration successful! Please login.');
         navigate('/login');
       } else {
