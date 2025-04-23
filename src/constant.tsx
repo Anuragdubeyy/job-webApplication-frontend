@@ -12,7 +12,7 @@ export const API_URL = {
     POST_NEW_JOB: DOMAIN + "/employers/jobs/create",
     GET_ALL_APPLICANT: DOMAIN + `/employers/jobs/applicants`,
     GET_ALL_APPLICANT_BY_POST:(id: string) => DOMAIN + `/employers/jobs/applicants/${id}`,
-    GET_ALL_JOB_APPLIED_BY_JOBSEEKER: DOMAIN + `/users/jobs/applications`,
+    GET_ALL_JOB_APPLIED_BY_JOBSEEKER: DOMAIN + `/users/applications`,
 }
 export const ITEM_PER_PAGE = 20;
 
