@@ -7,24 +7,25 @@ import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 import { Button } from '../../../components/ui/button';
 import { useNavigate } from 'react-router-dom';
 import { useStore } from '../../../store';
+import { getAllJobAppliedByUserAsync, selectAllJobAppliedList } from '../../../store/slices/job';
 
 export default function JobseekerAppliedJob() {
     const isDarkMode = useStore((state) => state.isDarkMode);
   
   const tableRef = useRef<null>(null);
 const dispatch = useAppDispatch();
-const EmployerPost = useAppSelector(selectAllEmployerJobList || []);
+const ApplliedJob = useAppSelector(selectAllJobAppliedList || []);
   const navigate = useNavigate();
 const handelonClick = () => {
   navigate("/create-job-post");
 }
 useEffect(() => {
-  dispatch(getAllEmployerJobListAsync());
+  dispatch(getAllJobAppliedByUserAsync());
 },[dispatch])
   return (
     <div className={`p-2 bg-gray-100 min-h-screen ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
     <div className="flex justify-between gap-4">
-        <h1 className="text-xl font-bold text-indigo-950 mb-4">job Applied({EmployerPost.length})</h1>
+        <h1 className="text-xl font-bold text-indigo-950 mb-4">job Applied({ApplliedJob.length})</h1>
         <div className="flex items-center border border-input bg-background rounded ring-offset-background">
             <Search className="ml-5 text-gray-500" />
             <input
@@ -43,7 +44,7 @@ useEffect(() => {
                 <div className="h-[74vh] flex flex-col w-full mt-1 overflow-hidden border rounded-lg">
                     <div className="w-full overflow-x-auto mb-5">
                         <div className="min-w-max">
-                            <DataTable tableRef={tableRef} columns={JoobkeerJobColumn} data={EmployerPost} />
+                            <DataTable tableRef={tableRef} columns={JoobkeerJobColumn} data={ApplliedJob} />
                         </div>
                     </div>
                 

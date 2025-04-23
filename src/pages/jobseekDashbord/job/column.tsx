@@ -13,26 +13,26 @@ export const  JoobkeerJobColumn = [
         cell: ({ row }: { row: RowType }) => row.index + 1,
     },
     {
-        accessorKey: 'title',
+        accessorKey: 'job.title',
         header: 'Title',
 
     },
     {
-        accessorKey: 'location',
+        accessorKey: 'job.location',
         header: 'location',
         
     },
     {
-        accessorKey: 'company',
+        accessorKey: 'job.company',
         header: 'company',
         
     },
-    {
-        accessorKey: 'description',
-        header: 'description',
-        cell: ({ row }: { row: RowType }) => row.original.description.slice(0, 50) + '...',
+    // {
+    //     accessorKey: 'description',
+    //     header: 'description',
+    //     cell: ({ row }: { row: RowType }) => row.original.description.slice(0, 50) + '...',
 
-    },
+    // },
     {
         accessorKey: "_id",
         header: "",

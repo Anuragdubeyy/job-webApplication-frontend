@@ -37,6 +37,11 @@ export const EmployerJobPostColumn = [
       row.original.description.slice(0, 50) + "...",
   },
   {
+    accessorKey: "applicationsCount",
+    header: "Applicants",
+  },
+
+  {
     accessorKey: "_id",
     header: "",
     cell: ({ row }: { row: RowType }) => {

@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getAllJobList, getSingleJob } from "../api/getAllJobs";
+import { getAllJobAppliedByUserList, getAllJobList, getSingleJob } from "../api/jobseeker";
 import { RootState } from "..";
 
 export interface Job {
@@ -22,15 +22,19 @@ export interface Job {
 export interface jobState {
   allJobList: Job[];
   singleJobDetail: Job;
+  allAppliedJobList: Job[];
   jobMessage: string;
   isJobLoading: boolean;
+  isAppliedjobLoading:boolean;
 }
 
 const initialState: jobState = {
   allJobList: [],
   singleJobDetail: {} as Job,
+  allAppliedJobList: [] ,
   jobMessage: "",
   isJobLoading: false,
+  isAppliedjobLoading:false,
 };
 
 export const getAllJobListAsync = createAsyncThunk(
@@ -45,6 +49,14 @@ export const getSingleJobAsync = createAsyncThunk(
   "job/getSingleJob",
   async (id: string) => {
     const res: any = await getSingleJob(id);
+    return res.data;
+  }
+);
+
+export const getAllJobAppliedByUserAsync = createAsyncThunk(
+  "job/getAllJobAppliedByUser",
+  async () => {
+    const res: any = await getAllJobAppliedByUserList();
     return res.data;
   }
 );
@@ -74,12 +86,17 @@ const JobSlice = createSlice({
       .addCase(getSingleJobAsync.rejected, (state, action) => {
         state.isJobLoading = false;
         state.jobMessage = action.error.message || "Something went wrong";
-      });
+      })
+      .addCase(getAllJobAppliedByUserAsync.fulfilled, (state, action) => {
+        state.allAppliedJobList = action.payload.data;
+        state.isAppliedjobLoading = false;
+      })
   },
 });
 
 export const selectAllJobList = (state: RootState) => state.job.allJobList;
 export const selectSingleJob = (state: RootState) => state.job.singleJobDetail;
+export const selectAllJobAppliedList = (state: RootState) => state.job.allAppliedJobList;
 export const selectJobMessage = (state: RootState) => state.job.jobMessage;
 export const selectJobLoading = (state: RootState) => state.job.isJobLoading;
 export const { clearJobMessage } = JobSlice.actions;

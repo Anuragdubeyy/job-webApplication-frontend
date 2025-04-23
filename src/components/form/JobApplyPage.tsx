@@ -116,22 +116,46 @@ export default function JobApplyPage() {
   const onSubmit = async (data: ApplicationInput) => {
     try {
       const formData = new FormData();
-      formData.append("name", data.name);
+  
+      // Append simple fields
+      formData.append("name", data.name || "");
       formData.append("experience_year", data.experience_year.toString());
       formData.append("currently_working", data.currently_working ? "true" : "false");
+      formData.append("notice_period", data.notice_period  || "");
+      formData.append("linkedIn_link", data.linkedIn_link || "");
+      formData.append("portfolio", data.portfolio || "");
+      formData.append("current_salary", data.current_salary || "");
+      formData.append("expected_salary", data.expected_salary || "");
+      if (data.resume instanceof File) {
+        formData.append("resume", data.resume);
+      } else {
+        console.error("Resume is not a valid file");
+        toast.error("Please provide a valid resume.");
+        return;
+      }  
+      console.log("resume", data.resume);
+      // Optional fields
+      if (data.coverLetter) formData.append("coverLetter", data.coverLetter);
   
-      if (data.notice_period) formData.append("notice_period", data.notice_period);
-      if (data.linkedIn_link) formData.append("linkedIn_link", data.linkedIn_link);
-      if (data.portfolio) formData.append("portfolio", data.portfolio);
+      if (data.skills && data.skills.length > 0) {
+        formData.append("skills", JSON.stringify(data.skills));
+      }
+      // Append experience array
+      if (data.experience && data.experience.length > 0) {
+        formData.append("experience", JSON.stringify(data.experience));
+      }
   
-      console.log("FormData before submission:", [...formData]);
+      // Debugging: Check FormData before submission
+      console.log("FormData before submission:", [...formData.entries()]);
   
+      // Send FormData
       const response = await axios.post(
         API_URL.POST_APPLY_FOR_JOB(id?.toString() || ""),
         formData,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("jobToken")}`,
+            "Content-Type": "multipart/form-data",
           },
         }
       );

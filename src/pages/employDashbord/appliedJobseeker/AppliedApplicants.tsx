@@ -1,4 +1,4 @@
-import {  useRef } from "react";
+import { useEffect, useRef } from "react";
 import DataTable from "../../../components/common/DataTable";
 import { Search } from "lucide-react";
 import { AppliedApplicantColumn } from "./column";
@@ -6,20 +6,26 @@ import { AppliedApplicantColumn } from "./column";
 import { Button } from "../../../components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../../../store";
+import {
+  getAllJobApplicantListAsync,
+  selectAllJobApplicantList,
+} from "../../../store/slices/employer";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 
 export default function AppliedApplicants() {
   const isDarkMode = useStore((state) => state.isDarkMode);
 
   const tableRef = useRef<null>(null);
-  // const dispatch = useAppDispatch();
-  // const EmployerPost = useAppSelector(selectAllEmployerJobList || []);
+  const dispatch = useAppDispatch();
+  const JobApplicant = useAppSelector(selectAllJobApplicantList || []);
   const navigate = useNavigate();
   const handelonClick = () => {
     navigate("/create-job-post");
   };
-  // useEffect(() => {
-  //   dispatch(getAllEmployerJobListAsync());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getAllJobApplicantListAsync());
+  }, [dispatch]);
+
   return (
     <div
       className={`p-2 bg-gray-100 min-h-screen ${
@@ -49,7 +55,7 @@ export default function AppliedApplicants() {
               <DataTable
                 tableRef={tableRef}
                 columns={AppliedApplicantColumn}
-                data={[]}
+                data={JobApplicant}
               />
             </div>
           </div>
