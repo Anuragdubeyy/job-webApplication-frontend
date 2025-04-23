@@ -163,10 +163,10 @@ export default function JobApplyPage() {
 
       if(response.status === 200){
         toast.success("Application submitted successfully!");
-        Navigate("/jobseeker/applied-jobs");
       }
       toast.success("Application submitted successfully!");
       form.reset();
+      Navigate("/jobseeker/applied-jobs");
       console.log("Server Response:", response.data);
     } catch (error: any) {
       console.error("Error submitting application:", error.response?.data || error.message);
