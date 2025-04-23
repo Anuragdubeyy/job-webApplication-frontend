@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "../ui/card";
 
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Button } from "../ui/button";
 import {
   Form,
@@ -38,6 +38,7 @@ export default function JobApplyPage() {
   const { id } = useParams();
   // const dispatch = useAppDispatch();
   // const coverLetterInputRef = useRef<HTMLInputElement>(null);
+  const Navigate = useNavigate();
   const [skills, setSkills] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState<string>("");
   const [newExperience, setNewExperience] = useState<any>({
@@ -159,9 +160,12 @@ export default function JobApplyPage() {
           },
         }
       );
-  
+
+      if(response.status === 500){
+        toast.success("Application submitted successfully!");
+        Navigate("/jobseeker/applied-jobs");
+      }
       console.log("Server Response:", response.data);
-      toast.success("Application submitted successfully!");
     } catch (error: any) {
       console.error("Error submitting application:", error.response?.data || error.message);
       toast.error(error.response?.data?.error || "An error occurred");

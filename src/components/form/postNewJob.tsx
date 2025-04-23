@@ -71,6 +71,7 @@ const navigate = useNavigate();
         { headers: {"Authorization": `Bearer ${token}`,"Content-Type": "application/json" } }
       );
       toast.success("Job posted successfully!");
+      navigate("/employer/jobPost");
       resetForm();
     } catch (error) {
       console.error(error);
